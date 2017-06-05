@@ -1,0 +1,64 @@
+.bg {
+  width: 750rpx;
+  height: 350px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+.box {
+  width: 350rpx;
+  margin: 30px auto 0;
+  color: #fff;
+  text-align: center;
+}
+.box .img_icon {
+  width: 30px;
+  height: 30px;
+}
+.cen {
+  font-size: 60px;
+  border-bottom: 1px solid #ddd;
+}
+.city {
+  text-align: center;
+  line-height: 120px;
+  font-size: 50rpx;
+  color: #fff;
+}
+.today {
+  width: 750rpx;
+  height: 350px;
+}
+.other {
+  clear: both;
+  width: 750rpx;
+  height: 150px;
+}
+.other_day {
+  height: 50px;
+  border-bottom: 1px solid #ddd;
+  background: rgba(255,255,255,.2);
+  text-align: center;
+  line-height: 50px;
+  font-size: 14px;
+  color: #2F4056;
+}
+.other_day:nth-child(3) {
+  border: none;
+}
+.weather_icon {
+  width: 30px;
+  height: 30px;
+  margin-left: 15px;
+}
+.day_title {
+  text-decoration: underline;
+  color: rgba(0,0,0,.7);
+}
+.weather_status {
+  background-color: #8fc31f;
+  font-weight: 400;
+  padding: 5px 10px;
+  border-radius: 13px;
+}
