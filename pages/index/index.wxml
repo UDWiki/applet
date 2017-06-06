@@ -1,36 +1,31 @@
 <view class="content">
-    <!-- 上面的区域 -->
-    <view class="today">
-        <image class="bg" src="/assets/images/bg.gif" mode="aspectFill"></image>
-        <view class="city">南宁</view>
-        <view class="box">
-            <text class="cen">33℃</text>
-            <view class="status">
-                <text>24℃/35℃</text>
-                <image class="img_icon" src="/assets/images/icons/100.png" ></image>
-                <text class="">多云</text>
-            </view>
-        </view>
+  <!-- 上面的区域 -->
+  <view class="today">
+    <image class="bg" src="/asset/images/bg.gif" mode="aspectFill"></image>
+    <view class="location" bindtap="changeMap">
+      <text class="">{{address.district}}</text>/
+      <text class="">{{address.street}}</text>
     </view>
-    <!-- 往后的天气 -->
-    <view class="other">
-        <view class="other_day">
-            <text class="day_title">今天</text>     
-            <image class="weather_icon" src="/assets/images/icons/500.png" mode="aspectFill"></image>
-            阵雨 25°/ 32°东北风 3级
-            <text class="weather_status">88 优</text>
-        </view>
-        <view class="other_day">
-            <text class="day_title">明天</text>   
-            <image class="weather_icon" src="/assets/images/icons/300.png" mode="aspectFill"></image>
-            阵雨 25°/ 32°东北风  3级
-            <text class="weather_status">69 优</text>
-        </view>
-        <view class="other_day">
-            <text class="day_title">后天</text>   
-            <image class="weather_icon" src="/assets/images/icons/400.png" mode="aspectFill"></image>
-            阵雨 25°/ 32°东北风 3级 
-            <text class="weather_status">77 优</text>
-        </view>
+    <view class="city">{{city}}</view>
+    <view class="box">
+      <text class="cen">{{real_time.qw}}℃</text>
+      <view class="status">
+         <image class="weather_icon" src="{{real_tq_icon}}" mode="scaleToFill"></image>{{real_time.tq}}
+      </view>
     </view>
+  </view>
+  <!-- 往后的天气 -->
+  <block wx:for="{{list}}" wx:key="unique">
+    <view class="other_day">
+      <view class="day_title">{{item.date}}</view>
+      <view class="classname">
+        <text>{{item.fl1}}~{{item.fl2}} {{item.qw1}}℃/{{item.qw2}}℃</text>
+      </view>
+      <view>
+         
+        <image class="weather_icon" src="/asset/images/icon/{{item.numtq1}}_0.png" mode="scaleToFill"></image>
+         <text class="weather_status">{{item.tq1}}/{{item.tq2}}</text>
+      </view>
+    </view>
+  </block>
 </view>
