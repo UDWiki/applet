@@ -1,3 +1,8 @@
+// 加载提示
+wx.showLoading({
+  title: '获取天气数据中',
+})
+
 //index.js
 //获取应用实例
 var app = getApp()
@@ -17,6 +22,9 @@ Page({
   // 加载事件
   onLoad: function () {
     var that = this;
+
+    // 关闭加载中的提示框
+    wx.hideLoading();
 
     // 获取地理位置
     wx.getLocation({
@@ -155,6 +163,21 @@ console.log(res);
         console.log(res);
       }
     });
+  },
+
+/**
+ * 下拉刷新
+ */
+  onPullDownRefresh: function () {
+    // 根据经纬度获取城市
+    that.getNameByLocation(res.latitude, res.longitude);
+    // 获取实时状态
+    that.getRealTimeStatus(res.latitude, res.longitude);
+    // 根据经纬度获取七天城市天气
+    that.getWeatherByLocation(res.latitude, res.longitude);
+
+    // 停止刷新
+    wx.stopPullDownRefresh();
   },
 
 
