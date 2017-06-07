@@ -2,10 +2,10 @@
   <!-- 上面的区域 -->
   <view class="today">
     <image class="bg" src="https://or2pofbfh.bkt.clouddn.com/bg.gif" mode="aspectFill"></image>
-    <view class="location" bindtap="changeMap">
+    <navigator class="location" bindtap="changeMap">
       <text class="">{{address.district}}</text>/
       <text class="">{{address.street}}</text>
-    </view>
+    </navigator>
     <view class="city">{{city}}</view>
     <view class="box">
       <text class="cen">{{real_time.qw}}℃</text>
@@ -16,8 +16,13 @@
   </view>
   <!-- 往后的天气 -->
   <block wx:for="{{list}}" wx:key="unique">
+   
     <view class="other_day">
-      <view class="day_title">{{item.date}}</view>
+      <view class="day_title" wx:if="{{index==0}}">今天</view>
+      <view class="day_title" wx:elif="{{index==1}}">明天</view>
+      <!-- index 判断 -->
+      <view class="day_title" wx:else>{{week[(index+week_index)>6?(index+week_index)-7:(index+week_index)]}}</view>
+       
       <view class="classname">
         <text>{{item.fl1}}~{{item.fl2}} {{item.qw1}}℃/{{item.qw2}}℃</text>
       </view>

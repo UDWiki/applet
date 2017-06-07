@@ -9,7 +9,19 @@ var app = getApp()
 Page({
   data: {
     motto: 'Hello World',
-    userInfo: {}
+    userInfo   : {},
+    // 地址
+    address    : {},
+    // 城市
+    city       : '',
+    // 实时数据
+    real_time  : {},
+    // 七天天气
+    list       : [],
+    // 周几
+    week       : ['周日', '周一', '周二', '周三', '周四', '周五', '周六', ],
+    week_index : 0,
+    week_next_index:0
   },
   //事件处理函数
   bindViewTap: function () {
@@ -22,6 +34,12 @@ Page({
   // 加载事件
   onLoad: function () {
     var that = this;
+    // 获取今天是周几
+    var d = new Date();
+
+    that.setData({
+      week_index : d.getDay()
+    });
 
     // 关闭加载中的提示框
     wx.hideLoading();
@@ -48,6 +66,7 @@ Page({
       },
       fail: function (res) {
         console.log(res);
+        that.boxDelayClose(res.errMsg);
       }
     })
   },
@@ -82,6 +101,7 @@ Page({
       },
       fail: function (res) {
         console.log(res);
+        that.boxDelayClose(res.errMsg);
       }
     })
   },
@@ -100,13 +120,14 @@ Page({
       url: url,
       success: function (res) {
         var data = res.data.result;
-console.log(res);
+        console.log(res);
         that.setData({
           address: data.addressComponent
         });
       },
       fail: function (res) {
         console.log(res);
+        that.boxDelayClose(res.errMsg);
       }
     })
   }, // 获取地理位置 结束
@@ -161,13 +182,14 @@ console.log(res);
       },
       fail: function (res) {
         console.log(res);
+        that.boxDelayClose(res.errMsg);
       }
     });
   },
 
-/**
- * 下拉刷新
- */
+  /**
+   * 下拉刷新
+   */
   onPullDownRefresh: function () {
     // 根据经纬度获取城市
     that.getNameByLocation(res.latitude, res.longitude);
@@ -192,7 +214,19 @@ console.log(res);
     else {
       return false;
     }
-  }
+  },
 
+  /**
+   * 弹出盒子延时关闭
+   */
+  boxDelayClose: function(msg){
+    wx.showLoading({
+      title: msg,
+    })
+
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 2000)
+  }
 
 })
