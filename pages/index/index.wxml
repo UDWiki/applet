@@ -1,36 +1,18 @@
-<view class="content">
-  <!-- 上面的区域 -->
-  <view class="today">
-    <image class="bg" src="https://or2pofbfh.bkt.clouddn.com/bg.gif" mode="aspectFill"></image>
-    <navigator class="location" bindtap="changeMap">
-      <text class="">{{address.district}}</text>/
-      <text class="">{{address.street}}</text>
-    </navigator>
-    <view class="city">{{city}}</view>
-    <view class="box">
-      <text class="cen">{{real_time.qw}}℃</text>
-      <view class="status">
-         <image class="weather_icon" src="{{real_tq_icon}}" mode="scaleToFill"></image>{{real_time.tq}}
-      </view>
-    </view>
-  </view>
-  <!-- 往后的天气 -->
-  <block wx:for="{{list}}" wx:key="unique">
-   
-    <view class="other_day">
-      <view class="day_title" wx:if="{{index==0}}">今天</view>
-      <view class="day_title" wx:elif="{{index==1}}">明天</view>
-      <!-- index 判断 -->
-      <view class="day_title" wx:else>{{week[(index+week_index)>6?(index+week_index)-7:(index+week_index)]}}</view>
-       
-      <view class="classname">
-        <text>{{item.fl1}}~{{item.fl2}} {{item.qw1}}℃/{{item.qw2}}℃</text>
-      </view>
-      <view>
-         
-        <image class="weather_icon" src="/asset/images/icon/{{item.numtq1}}_0.png" mode="scaleToFill"></image>
-         <text class="weather_status">{{item.tq1}}/{{item.tq2}}</text>
-      </view>
-    </view>
-  </block>
+<movable-area class="con" scroll-x="true"  scroll-left="1260">
+<view class="record">
+  <view>日期</view>
+  <view>QQ/手机</view>
+  <view>用户</view>
+  <view>报酬</view>
+  <view>描述</view>
 </view>
+<block wx:for="{{records}}" wx:key="data">
+  <view class="record">
+    <view>{{item.date}}</view>
+    <view>{{item.qq}}</view>
+    <view>{{item.user}}</view>
+    <view>{{item.price}}</view>
+    <view>{{item.description}}</view>
+  </view>
+</block>
+</movable-area>

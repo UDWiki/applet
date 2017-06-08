@@ -1,14 +1,40 @@
 {
   "pages":[
+
+    "pages/add/index",
     "pages/index/index",
+    "pages/set/index",
     "pages/logs/logs"
   ],
+  "tabBar": {
+    "selectedColor": "#2fa3e0",
+    "backgroundColor": "#fff",
+    "borderStyle": "#ddd",
+    "list": [
+      {
+        "pagePath": "pages/add/index",
+        "text": "添加",
+        "iconPath": "/assets/images/icon/add_1.png",
+        "selectedIconPath": "/assets/images/icon/add_2.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "主页",
+        "iconPath": "/assets/images/icon/home_1.png",
+        "selectedIconPath": "/assets/images/icon/home_2.png"
+      },
+      {
+        "pagePath": "pages/set/index",
+        "text": "设置",
+        "iconPath": "/assets/images/icon/set_1.png",
+        "selectedIconPath": "/assets/images/icon/set_2.png"
+      }
+    ]
+  },
   "window":{
-    "enablePullDownRefresh":"true",
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "天气预报",
-    "navigationBarTextStyle":"black",
-    "backgroundColor":"#000"
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
   }
 }

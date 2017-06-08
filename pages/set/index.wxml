@@ -1,0 +1,4 @@
+<form bindsubmit="exportTxt">
+<button type="primary" plain="true" form-type="submit" class="export">导出数据(txt)</button>
+</form>
+

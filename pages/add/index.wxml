@@ -1,0 +1,43 @@
+<view class="container">
+  <form bindsubmit="addWork">
+    <view class="section">
+      <view class="view_inline">
+        <label class="form_label" for="description">描述：</label>
+        <view class="input_line">
+          <input id="description" name="desc" type="text" placeholder="本次的描述" confirm-type="next" />
+        </view>
+      </view>
+      <view class="view_inline">
+        <label class="form_label" for="name">称呼：</label>
+        <view class="input_line">
+          <input id="name" name="user" type="text" placeholder="用户的称呼" confirm-type="next" />
+        </view>
+      </view>
+      <view class="view_inline">
+        <label class="form_label" for="description">QQ/手机：</label>
+        <view class="input_line">
+          <input id="description" name="phon" type="number" placeholder="用户的QQ"  confirm-type="next" />
+        </view>
+      </view>
+       <view class="view_inline">
+        <label class="form_label" for="description">报酬：</label>
+        <view class="input_line">
+          <input type="number" name="pric" placeholder="请输入金额" confirm-type="done"/>
+        </view>
+      </view>
+      <view class="view_inline">
+        <label class="form_label" for="description">日期：</label>
+        <view class="input_line">
+          <picker mode="date" bindchange="changeDate" name="date" value="{{date}}">
+            {{date}} 
+          </picker>
+        </view>
+      </view>
+
+     
+
+    </view>
+    <button class="btn" plain="true" form-type="reset"> 重置 </button>
+    <button class="btn" type="primary" plain="true" disabled="{{submit_btn_dis}}" form-type="submit"> 添加 </button>
+  </form>
+</view>

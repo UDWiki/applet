@@ -1,0 +1,64 @@
+page {
+  font-size: 14px;
+  font-family: "微软雅黑";
+}
+.container {
+  padding-top: 50px;
+}
+.view_inline {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0;
+  text-align: center;
+  line-height: 24px;
+  border: 2px solid #ddd;
+  margin: 5px;
+}
+
+.form_label {
+  width: 200rpx;
+  padding: 8px 5px;
+  height: 38px;
+  line-height: 20px;
+  border-right: 2px solid #e6e6e6;
+  border-radius: 2px 0 0 2px;
+  text-align: center;
+  background-color: #fbfbfb;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  box-sizing: border-box !important;
+  float: left;
+  display: block;
+  position: relative;
+}
+
+.input_line {
+   width: 500rpx;
+  margin-left: -1px;
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+  line-height: 40px;
+}
+
+input {
+  text-rendering: auto;
+  color: initial;
+  text-transform: none;
+  text-indent: 0px;
+  text-align: left;
+  text-shadow: none;
+  display: block;
+  width: 100%;
+  line-height: 30px;
+  border-radius: 0 2px 2px 0;
+  padding: 5px;
+    padding-left: 10px;
+}
+.btn {
+  margin: 10px;
+}
